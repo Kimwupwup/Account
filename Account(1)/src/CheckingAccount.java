@@ -15,7 +15,6 @@ public class CheckingAccount extends Account {
 
 	@Override
 	public void debit(double debit) {
-		
 		if (debit > creditLimit) {
 			System.out.println("출금 한도를 넘었습니다. 출금 한도 : " + creditLimit);
 		} else {
