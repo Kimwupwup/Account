@@ -7,7 +7,7 @@ public class CheckingAccount extends Account {
 	
 	CheckingAccount(double balance, double creditLimit, double interest, double loanInterest) {
 		super(balance);
-		this.creditLimit = creditLimit;
+		this.creditLimit = getBalance() + creditLimit;
 		this.interest = interest;
 		this.loanInterest = loanInterest;
 	}
@@ -44,13 +44,23 @@ public class CheckingAccount extends Account {
 	}
 	
 	public void passTime(int time) {
-		double bal = getBalance();
-		
-		creditLimit = creditLimit + bal * Math.pow(loanInterest, time);
-		bal = bal + bal * Math.pow(loanInterest, time);
-		setBalance(bal);
-		if (creditLimit < 0) {
-			System.out.println("accout1 went Bankrupt");
+		if (getBalance() < 0) {
+			creditLimit = creditLimit + (getBalance() * Math.pow(1+loanInterest, time) - getBalance());
+			setBalance(getBalance() * Math.pow(1+loanInterest, time));
+			if(isBankrupted() == true) {
+				creditLimit = 0.0;
+			}
+		} else {
+			creditLimit = creditLimit + (getBalance() * Math.pow(1+interest, time) - getBalance());
+			setBalance(getBalance() * Math.pow(1+interest, time));
+		}
+	}
+	
+	public boolean isBankrupted() {
+		if(creditLimit <= 0) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 }
