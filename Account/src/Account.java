@@ -3,11 +3,13 @@ public class Account {
 	private double balance1;	//∞Ë¡¬ 1
 	private double balance2;	//∞Ë¡¬ 2
 	
-	Account(double balance1, double balance2) {
+	public Account(double balance1, double balance2) {
 		this.balance1 = balance1;
 		this.balance2 = balance2;
 	}
 	
+	
+
 	public void credit(double acc1, double acc2) {	//∞Ë¡¬ø° ¿‘±›
 		balance1 = balance1 + acc1;
 		balance2 = balance2 + acc2;
