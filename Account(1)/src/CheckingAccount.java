@@ -36,7 +36,6 @@ public class CheckingAccount extends Account {
 			double bal = getBalance();
 			bal = bal + bal * loanInterest;
 			setBalance(bal);
-			//
 		} 	
 	}
 
