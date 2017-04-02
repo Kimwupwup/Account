@@ -13,8 +13,6 @@ public class CheckingAccount extends Account {
 		this.loanInterest = loanInterest;
 	}
 	
-	
-	
 	@Override
 	public void debit1(double m) {
 		if (m > creditLimit) {
