@@ -25,7 +25,7 @@ public class SavingsAccount extends Account{
 	}
 	
 	public double getWithdrawableAccount() {
-		if (this.time > 12) {
+		if (this.time >= 12) {
 			creditLimit = getBalance();
 			return creditLimit;
 		} else {
@@ -36,31 +36,23 @@ public class SavingsAccount extends Account{
 	public void passTime() {
 		this.time = this.time + 1;
 		if (this.time >= 12) {
-			setBalance(getBalance() * (1+interest));
+			setBalance(getBalance() * Math.pow(1+interest, 12));
 		}
 	}
 	
 	public void passTime(int time) {
 		this.time = this.time + time;
 		if (this.time >= 12) {
-			setBalance(getBalance() * Math.pow(1+interest, time));
+			setBalance(getBalance() * Math.pow(1+interest, 12));
 		}
 	}
 
 	public double EstimateValue() {
-		this.time = this.time + 1;
-		if (this.time <= 12) {
-			setBalance(getBalance() * (1+interest));
-		}
-		return getBalance();
+		return getBalance() * Math.pow(1+interest, this.time);
 	}
 	
 	public double EstimateValue(int time) {
-		this.time = this.time + time;
-		if (this.time <= 12) {
-			setBalance(getBalance() * Math.pow(1+interest, time));
-		}
-		return getBalance();
+		return getBalance() * Math.pow(1+interest, this.time);
 	}
 	
 	public String toString() {
