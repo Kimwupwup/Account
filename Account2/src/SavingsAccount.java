@@ -34,4 +34,8 @@ public class SavingsAccount extends Account{
 			setBalance(getBalance() * Math.pow(1+interest, time));
 		}
 	}
+	
+	public boolean isBankrupted() {
+		return true;
+	}
 }

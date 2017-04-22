@@ -5,8 +5,8 @@ public class AccountTest {
 	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
-		CheckingAccount account1 = new CheckingAccount(100.0, 50.0, 0.01, 0.07);
-		SavingsAccount account2 = new SavingsAccount(100.0, 0.05);
+		Account account1 = new CheckingAccount(100.0, 50.0, 0.01, 0.07);
+		Account account2 = new SavingsAccount(100.0, 0.05);
 		//ChekingAccount
 		System.out.println("Account1 balance : $" + account1.getBalance() + "현재 출금가능액 : " + account1.getWithdrawableAccount());
 		
@@ -17,17 +17,17 @@ public class AccountTest {
 
 
 		System.out.printf("Account1 balance : $ %.2f \t현재 출금가능액 : $ %.2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-		if (account1.isBankrupted() == true) {
+		if (((CheckingAccount)account1).isBankrupted() == true) {
 			System.out.println("account1 went Bankrupt!");
 		}
 		account1.passTime(1);
 		System.out.printf("Account1 balance : $ %.2f \t현재 출금가능액 : $ %.2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-		if (account1.isBankrupted() == true) {
+		if (((CheckingAccount)account1).isBankrupted() == true) {
 			System.out.println("account1 went Bankrupt!");
 		}
 		account1.passTime(5);
 		System.out.printf("Account1 balance : $ %.2f \t현재 출금가능액 : $ %.2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-		if (account1.isBankrupted() == true) {
+		if (((CheckingAccount)account1).isBankrupted() == true) {
 			System.out.println("account1 went Bankrupt!");
 		}
 		
