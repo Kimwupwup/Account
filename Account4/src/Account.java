@@ -1,3 +1,6 @@
+/**
+ * throws / throw를 통한  예외처리 추가
+ */
 
 public abstract class Account{
 	
